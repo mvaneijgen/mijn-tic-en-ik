@@ -176,7 +176,7 @@ const initItems = [
   },
   {
     title:
-      'CMD + T, \\"F\\" intypen, en op ENTER drukken brengt me binnen een halve seconde op Facebook... ongeveer 150 keer per dag.',
+      'CMD + T, "F" intypen, en op ENTER drukken brengt me binnen een halve seconde op Facebook... ongeveer 150 keer per dag.',
     name: "Nick",
     share: 27,
     id: 27,
@@ -318,6 +318,7 @@ const initItems = [
 
 export const state = () => ({
   items: [...initItems], // Items 💬
+  itemCurrent: "",
 });
 
 //------------------------------------------------------//
@@ -331,5 +332,23 @@ export const getters = {
     return state.items;
   },
   // END Get items 💬
+
+  getItemCurrent: state => {
+    return state.itemCurrent;
+  },
+  //------------------------------------------------------//
+  // Get random 🎲 item 💬
+  //------------------------------------------------------//
+  getItemsRandom: state => {
+    return state.items[Math.floor(Math.random() * state.items.length)];
+  },
+  // END Get random 🎲 item 💬 -------------------------------------//
 };
 // END Getters -------------------------------------//
+
+export const mutations = {
+  setCurrentItem(state) {
+    state.itemCurrent =
+      state.items[Math.floor(Math.random() * state.items.length)];
+  },
+};

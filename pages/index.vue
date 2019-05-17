@@ -1,5 +1,5 @@
 <template>
-  <TicSingle :item="getRandomItem"/>
+  <TicSingle :item="getItemCurrent" :key="getItemCurrent.id"/>
 </template>
 
 <script>
@@ -16,11 +16,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      getItems: "items/getItems"
-    }),
-    getRandomItem: function() {
-      return this.getItems[Math.floor(Math.random() * this.getItems.length)];
-    }
+      getItemCurrent: "items/getItemCurrent"
+    })
+  },
+  mounted() {
+    this.$store.commit("items/setCurrentItem");
   }
 };
 </script>

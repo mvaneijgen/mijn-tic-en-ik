@@ -1,10 +1,10 @@
 <template>
   <div class="TicSingle">
     <div class="inner">
-      <blockquote>{{item.title}}</blockquote>
+      <blockquote v-html="item.title"></blockquote>
       <div class="meta">
         <span>{{item.share}} mensen delen deze tic</span>
-        <button>Dit doe ik ook!</button>
+        <button @click="getRandomItem">Dit doe ik ook!</button>
       </div>
     </div>
   </div>
@@ -16,7 +16,12 @@ export default {
   name: "TicSingle",
   data() {
     return {};
-  } // End data
+  }, // End data
+  methods: {
+    getRandomItem() {
+      this.$store.commit("items/setCurrentItem");
+    }
+  }
 };
 </script>
 

@@ -7,4 +7,16 @@ button,
   color: $brand-light;
   font-size: inherit;
   padding: 15px 35px;
+  border: 2px solid $brand-dark;
+  transition: background-color, border-color;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+
+  &:focus,
+  &:hover {
+    outline: none;
+    background-color: $brand-one;
+    color: $brand-dark;
+    // border-color: $brand-two;
+  }
 }
