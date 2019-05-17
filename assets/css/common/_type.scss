@@ -26,10 +26,11 @@ blockquote {
   line-height: 1.3em;
   font-weight: 600;
   margin: 0;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: $base-margin * 2;
 
   max-width: 970px;
-  margin: 0 auto;
   @include media-breakpoint-up(lg) {
     font-size: 42px;
     margin-bottom: $base-margin * 3;

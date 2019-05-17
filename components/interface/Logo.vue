@@ -24,7 +24,7 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 .logo {
   text-decoration: none;
-  padding: 10px;
+  padding: $base-margin;
   font-weight: 600;
   font-size: 28px;
   color: $brand-dark;
@@ -34,6 +34,9 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   > span {
     display: block;
     .amp {
@@ -43,9 +46,6 @@ export default {
     }
   }
   @include media-breakpoint-up(lg) {
-    position: absolute;
-    bottom: 0;
-    left: 0;
     padding: 30px;
     font-size: 36px;
   }

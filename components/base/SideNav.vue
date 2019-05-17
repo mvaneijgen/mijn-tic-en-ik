@@ -99,7 +99,7 @@ export default {
 }
 #alloy-nav-toggle {
   position: fixed;
-  top: 45vh;
+  top: 75vh;
   opacity: 0.4;
 
   @include media-breakpoint-up(lg) {
