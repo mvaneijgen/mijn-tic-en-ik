@@ -2,7 +2,7 @@ const routerBase =
   process.env.DEPLOY_ENV === "GH_PAGES"
     ? {
         router: {
-          base: "/wish-list/",
+          base: "/mijn-tic-en-ik/",
         },
       }
     : {};
