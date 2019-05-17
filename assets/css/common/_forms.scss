@@ -1,0 +1,10 @@
+input[type="submit"],
+button,
+.btn {
+  background-color: $brand-dark;
+  font-weight: 600;
+  border-radius: 30px;
+  color: $brand-light;
+  font-size: inherit;
+  padding: 15px 35px;
+}

@@ -1,0 +1,53 @@
+<template>
+  <nuxt-link to="/" class="logo">
+    <span>Mijn</span>
+    <span>
+      <span>tic</span>
+      <span class="amp">&</span>
+      <span>ik</span>
+    </span>
+  </nuxt-link>
+</template>
+
+<script>
+export default {
+  name: "Logo",
+  data() {
+    return {
+      title: "Logo"
+    };
+  } // End data
+};
+</script>
+
+<style lang="scss" scoped>
+@import "~/assets/css/common/_variables.scss";
+.logo {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 28px;
+  color: $brand-dark;
+  display: block;
+  width: auto;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  > span {
+    display: block;
+    .amp {
+      letter-spacing: -10px;
+      transform: translateX(-5px);
+      display: inline-block;
+    }
+  }
+  @include media-breakpoint-up(lg) {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 30px;
+    font-size: 36px;
+  }
+}
+</style>
