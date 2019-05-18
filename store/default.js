@@ -79,25 +79,17 @@ export const state = () => ({
   //------------------------------------------------------//
   callToActions: [
     {
-      title: "Are there any products you’re missing?",
+      title: "Deel jouw tics!",
       description:
-        "Help the community by uploading missing items to fill up the database.",
-      cta: "Upload your own",
+        "Voeg jou eigen tic toe, je mag er zoveel toevoegen als je wil.",
+      cta: "Voeg toe!",
       type: "cta--alt",
       url: "/submit",
     },
     {
-      title: "Have multiple products to add?",
+      title: "Wil je helpen deze site te beheren?",
       description:
-        "If you have a large collection of products, we wil help you by adding them all at once.Just get in contact with us.",
-      cta: "Contact",
-      type: "",
-      url: "/submit",
-    },
-    {
-      title: "Want to help moderate this site?",
-      description:
-        "If you want to help making this site even better, I would love to hear from you. Just shoot me a message!",
+        "Weet jij hoe je met data om moet gaan?",
       cta: "Contact",
       type: "",
       url: "/contact",
@@ -108,35 +100,17 @@ export const state = () => ({
   //------------------------------------------------------//
   todos: [
     {
-      name: "Keep save state after refresh",
+      name: "Submit tics to firebase",
       description: "",
     },
     {
-      name: "Allow saving multiple setups",
+      name: "Create custom url for each tic",
       description: "",
     },
     {
-      name: "Create a list of most visited/popular setups",
+      name: "Allow sharing of tics",
       description: "",
-    },
-    {
-      name: "Allow for a visual way to have two different trucks/wheels",
-      description: "",
-    },
-    {
-      name:
-        "Add a distinctive element that you're looking to upgrade a particular item",
-      description: "",
-    },
-    {
-      name:
-        "Do a reimport of a lot of trucks and wheels that have the wrong images",
-      description: "",
-    },
-    {
-      name: "Refactor all the code",
-      description: "",
-    },
+    }
   ],
   specialThanks: [
     {

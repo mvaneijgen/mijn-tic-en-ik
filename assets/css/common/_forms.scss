@@ -1,3 +1,37 @@
+//------------------------------------------------------//
+// Input styles
+//------------------------------------------------------//
+textarea,
+input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 3px solid $brand-dark;
+  &:focus {
+    outline: none;
+    border-bottom: 3px solid $brand-light;
+    // border-color: $brand-two;
+  }
+}
+// input,
+// textarea {
+//   font-size: 24px;
+//   padding: 10px;
+
+//   color: red;
+//   text-shadow: 0px 0px 0px #000;
+//   -webkit-text-fill-color: transparent;
+// }
+// input::-webkit-input-placeholder,
+// textarea::-webkit-input-placeholder {
+//   color: red;
+//   text-shadow: 1px 1px 0px #000;
+//   -webkit-text-fill-color: initial;
+// }
+// END Input styles -------------------------------------//
+
+//------------------------------------------------------//
+// Button styles
+//------------------------------------------------------//
 input[type="submit"],
 button,
 .btn {
@@ -8,10 +42,12 @@ button,
   font-size: inherit;
   padding: 15px 35px;
   border: 2px solid $brand-dark;
+  text-decoration: none;
   transition: background-color, border-color;
   transition-duration: 300ms;
   transition-timing-function: ease;
-
+  margin-bottom: $base-margin;
+  display: inline-block;
   &:focus,
   &:hover {
     outline: none;
@@ -20,3 +56,9 @@ button,
     // border-color: $brand-two;
   }
 }
+
+.btn--small {
+  font-size: 14px;
+  padding: 5px 15px;
+}
+// END Button styles -------------------------------------//

@@ -2,9 +2,35 @@
   box-sizing: border-box;
 }
 body {
-  background-color: $brand-one;
   margin: 0;
+  overflow-x: hidden;
+  background-color: $brand-one;
+}
+main {
   position: relative;
   min-height: 100vh;
-  overflow-x: hidden;
+  z-index: 100;
+  background-color: $brand-one;
+  @include media-breakpoint-up(lg) {
+    margin-bottom: 90vh;
+  }
 }
+.alloy-cards {
+  border-radius: 10px;
+  .btn {
+    margin-bottom: 0;
+  }
+}
+
+//------------------------------------------------------//
+// Side navigration aside
+//------------------------------------------------------//
+.container {
+  transition: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  &[data-show-nav="true"] {
+    transform: translateX(-400px);
+  }
+}
+// END Side navigration aside  -------------------------------------//

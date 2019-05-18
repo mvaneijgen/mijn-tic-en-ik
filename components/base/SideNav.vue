@@ -1,6 +1,6 @@
 
 <template>
-  <div class="component-CallToAction" :data-show-nav="show">
+  <div class="component-SideNav" :data-show-nav="getMenuToggle">
     <div @click="navToggle" id="alloy-nav-toggle">
       <div class="inner">
         <span></span>
@@ -15,16 +15,22 @@
         <nav>
           <ul>
             <li>
-              <nuxt-link to="/">home</nuxt-link>
+              <nuxt-link to="/">Start</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/about">About</nuxt-link>
+              <nuxt-link to="/submit">Voeg een tic toe!</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/about">About</nuxt-link>
+              <nuxt-link to="/alle-tics">Bekijk alle tics</nuxt-link>
             </li>
             <li>
-              <nuxt-link to="/about">About</nuxt-link>
+              <nuxt-link to="/mijn-tics">Mijn tics</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/over">Over</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link to="/contact">Contact</nuxt-link>
             </li>
           </ul>
         </nav>
@@ -35,6 +41,8 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 import CallToAction from "@/components/base/CallToAction.vue";
 
 export default {
@@ -44,17 +52,20 @@ export default {
     CallToAction
   },
   data() {
-    return {
-      title: "SlideNav",
-      show: false
-    };
+    return {};
   }, // End data
+  computed: {
+    ...mapGetters({
+      getMenuToggle: "interface/getMenuToggle"
+    })
+  },
   methods: {
     navToggle() {
-      this.show = !this.show;
+      console.warn("setMenuToggle");
+      this.$store.commit("interface/setMenuToggle");
     },
     closeToggle() {
-      this.show = !this.show;
+      this.$store.commit("interface/setMenuToggle");
     }
   }
 };
@@ -79,22 +90,31 @@ export default {
   padding: 30px;
   z-index: 3000;
 
-  opacity: 0;
-  transform: translateX(100%);
   transition: transform;
   transition-duration: 300ms;
   transition-timing-function: ease;
   overflow-y: auto;
   height: 100%;
+  nav {
+    margin-top: $base-margin * 2;
+    margin-bottom: $base-margin * 2;
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    a {
+      font-size: 22px;
+      line-height: 1.4em;
+      display: block;
+      color: $brand-light;
+      text-decoration: none;
+      padding-bottom: 25px;
+      font-weight: 600;
 
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  a {
-    color: $brand-light;
-    text-decoration: none;
+      &:hover {
+      }
+    }
   }
 }
 #alloy-nav-toggle {
@@ -103,12 +123,12 @@ export default {
   opacity: 0.4;
 
   @include media-breakpoint-up(lg) {
-    top: 15vh;
+    top: 0;
     opacity: 1;
   }
   right: 0;
   z-index: 4000;
-  background-color: $brand-dark;
+  background-color: $brand-one;
 
   width: 60px;
   height: 52px;
@@ -131,7 +151,7 @@ export default {
     position: absolute;
     height: 3px;
     width: 100%;
-    background: $brand-light;
+    background: $brand-dark;
     border-radius: 0;
     opacity: 1;
     left: 0;
@@ -162,7 +182,9 @@ export default {
     opacity: 1;
   }
   #alloy-nav-toggle {
+    background-color: $brand-dark;
     span {
+      background-color: $brand-one;
       &:nth-child(1) {
         top: 10px;
         width: 0;
@@ -183,6 +205,15 @@ export default {
         left: 50%;
       }
     }
+  }
+}
+</style>
+
+<style lang="scss">
+.component-SideNav {
+  .alloy-cards {
+    font-size: 18px;
+    line-height: 1.4em;
   }
 }
 </style>

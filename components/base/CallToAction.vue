@@ -11,7 +11,9 @@
           <strong>{{ cta.title }}</strong>
           <span>{{ cta.description }}</span>
         </p>
-        <nuxt-link :to="cta.url" class="btn btn--small">{{ cta.cta }}</nuxt-link>
+        <div class="btn-group">
+          <nuxt-link :to="cta.url" class="btn btn--small">{{ cta.cta }}</nuxt-link>
+        </div>
       </div>
     </div>
   </div>
@@ -42,7 +44,7 @@ export default {
 }
 .alloy-cards {
   &.cta {
-    background-color: $brand-one;
+    background-color: $brand-dark;
     margin-bottom: $base-margin;
     color: $brand-light;
     > .inner {
@@ -54,10 +56,13 @@ export default {
     strong {
       display: block;
     }
+    .btn-group {
+      text-align: right;
+    }
     .btn {
       display: inline-block;
-      background-color: darken($brand-one, 10%);
-      border-color: darken($brand-one, 10%);
+      background-color: lighten($brand-dark, 15%);
+      border-color: lighten($brand-dark, 15%);
     }
   }
   &[data-cta-type="cta--alt"] {
@@ -68,12 +73,4 @@ export default {
     }
   }
 }
-// .alloy-slide-nav {
-//   .alloy-cards.cta {
-//     background-color: $brand-one;
-//     .btn {
-//       background-color: $brand-one;
-//     }
-//   }
-// }
 </style>

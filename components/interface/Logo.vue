@@ -27,6 +27,7 @@ export default {
   padding: $base-margin;
   font-weight: 600;
   font-size: 28px;
+  line-height: 1.2em;
   color: $brand-dark;
   display: block;
   width: auto;
