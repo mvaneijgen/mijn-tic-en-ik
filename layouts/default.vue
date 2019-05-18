@@ -5,7 +5,7 @@
         <!-- <transition name="fade" mode="out-in"> -->
         <nuxt/>
         <!-- </transition> -->
-
+        <CallToActionBubble/>
         <Logo/>
       </main>
       <Footer/>
@@ -20,6 +20,7 @@ import { mapGetters } from "vuex";
 import SideNav from "~/components/base/SideNav.vue";
 import Footer from "@/components/base/Footer.vue";
 import Logo from "~/components/interface/Logo.vue";
+import CallToActionBubble from "~/components/interface/CallToActionBubble.vue";
 
 export default {
   data() {
@@ -28,6 +29,7 @@ export default {
   components: {
     SideNav,
     Footer,
+    CallToActionBubble,
     Logo
   },
   computed: {

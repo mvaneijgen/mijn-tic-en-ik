@@ -49,10 +49,30 @@ form {
       font-size: 42px;
       margin-bottom: $base-margin * 3;
     }
+    color: $brand-light;
+
+    &::-webkit-input-placeholder {
+      color: $brand-light;
+    }
+    &::-moz-placeholder {
+      color: $brand-light;
+    } /* Firefox 19+ */
+    &:-moz-placeholder {
+      color: $brand-light;
+    } /* Firefox 18- */
+    &:-ms-input-placeholder {
+      color: $brand-light;
+    }
   }
 
   .btn-group {
     text-align: right;
   }
+}
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-moz-placeholder,
+:-ms-input-placeholder {
+  color: $brand-light;
 }
 </style>
