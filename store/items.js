@@ -56,7 +56,7 @@ const initItems = [
   },
   {
     title:
-      "Als ik eigenlijk hard aan de slag moet gaan en ik ontdek zo\\'n site als deze. Moet ik gelijk alles bekijken en zelf ook een bedenken zodat het lijkt alsof ik iets nuttigs doe met mijn tijd.",
+      "Als ik eigenlijk hard aan de slag moet gaan en ik ontdek zo'n site als deze. Moet ik gelijk alles bekijken en zelf ook een bedenken zodat het lijkt alsof ik iets nuttigs doe met mijn tijd.",
     name: "Angelo",
     share: 9,
     id: 9,
@@ -90,7 +90,7 @@ const initItems = [
   },
   {
     title:
-      "Vroeger was het erger dan nu, maar ik wilde graag van veel dingen een even aantal. Het ergst is het bij snoepjes. Ik neem 2 snoepjes, of 4 of 6 etcetera. Als iemand me er 3 geeft dan wil ik er graag één bij. Zo niet, dan geef ik er een weg. Als het bv. M&M\\'s zijn dan wil ik ook graag steeds een even aantal van dezelfde kleur.",
+      "Vroeger was het erger dan nu, maar ik wilde graag van veel dingen een even aantal. Het ergst is het bij snoepjes. Ik neem 2 snoepjes, of 4 of 6 etcetera. Als iemand me er 3 geeft dan wil ik er graag één bij. Zo niet, dan geef ik er een weg. Als het bv. M&M's zijn dan wil ik ook graag steeds een even aantal van dezelfde kleur.",
     name: "Danny",
     share: 14,
     id: 14,
@@ -195,7 +195,7 @@ const initItems = [
   },
   {
     title:
-      "Als iemand zegt: \\'Stop\\', dan denk ik: Hammertime. En als iemand zegt: \\'een euro\\', dan antwoord ik hardop: \\'Kenker, een euro? Kenker!\\', en rap ik de rest van Watskeburt vrolijk verder.",
+      "Als iemand zegt: 'Stop', dan denk ik: Hammertime. En als iemand zegt: 'een euro', dan antwoord ik hardop: 'Kenker, een euro? Kenker!', en rap ik de rest van Watskeburt vrolijk verder.",
     name: "Nick",
     share: 30,
     id: 30,
@@ -242,7 +242,7 @@ const initItems = [
   },
   {
     title:
-      "Mijn ondergoed moet altijd bij mijn kleding matchen of op z\\'n minst bij elkaar, anders wordt ik gek!",
+      "Mijn ondergoed moet altijd bij mijn kleding matchen of op z'n minst bij elkaar, anders wordt ik gek!",
     name: "Mees",
     share: 37,
     id: 37,
@@ -276,7 +276,7 @@ const initItems = [
   },
   {
     title:
-      "Als iets in de aanbieding is, koop ik het bijna altijd. Ik moet echt tegen mezelf zeggen \\'Dit heb je echt niet nodig en staat je in de weg\\' wil ik het niet doen...",
+      "Als iets in de aanbieding is, koop ik het bijna altijd. Ik moet echt tegen mezelf zeggen 'Dit heb je echt niet nodig en staat je in de weg' wil ik het niet doen...",
     name: "Mees",
     share: 42,
     id: 42,
@@ -309,7 +309,7 @@ const initItems = [
   },
   {
     title:
-      "Op z\\'n minst 3x op snooze drukken voordat ik daadwerkelijk m\\'n bed uitkom",
+      "Op z'n minst 3x op snooze drukken voordat ik daadwerkelijk m'n bed uitkom",
     name: "Jaimy",
     share: 47,
     id: 47,
