@@ -1,7 +1,7 @@
 <template>
   <div class="TicSingle">
     <div class="inner">
-      <blockquote v-html="item.title"></blockquote>
+      <blockquote>{{item.title}}</blockquote>
       <div class="meta">
         <span>{{item.share}} mensen delen deze tic</span>
         <button @click="getRandomItem">Dit doe ik ook!</button>
@@ -19,8 +19,24 @@ export default {
   }, // End data
   methods: {
     getRandomItem() {
-      this.$store.commit("items/setCurrentItem");
+      this.$store.commit("items/setItemCurrent");
+    },
+    arrowNavigation(e) {
+      if (e.key == "ArrowRight") {
+        this.getRandomItem();
+      }
+      if (e.key == "ArrowLeft") {
+        this.$store.commit("items/setItemPreviousAsCurrent");
+      }
     }
+  },
+  created() {
+    if (process.client) {
+      window.addEventListener("keydown", this.arrowNavigation);
+    }
+  },
+  beforeDestroy: function() {
+    window.removeEventListener("keydown", this.arrowNavigation);
   }
 };
 </script>

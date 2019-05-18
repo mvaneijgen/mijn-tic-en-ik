@@ -318,7 +318,8 @@ const initItems = [
 
 export const state = () => ({
   items: [...initItems], // Items 💬
-  itemCurrent: "",
+  itemCurrent: false,
+  itemPrevious: false,
 });
 
 //------------------------------------------------------//
@@ -347,8 +348,15 @@ export const getters = {
 // END Getters -------------------------------------//
 
 export const mutations = {
-  setCurrentItem(state) {
+  setItemCurrent(state) {
+    // Save 💾 current item 💬 to use later
+    state.itemPrevious = state.itemCurrent;
+
+    // Update ⬆️ item 💬
     state.itemCurrent =
       state.items[Math.floor(Math.random() * state.items.length)];
+  },
+  setItemPreviousAsCurrent(state) {
+    state.itemCurrent = state.itemPrevious;
   },
 };

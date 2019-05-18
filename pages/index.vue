@@ -1,5 +1,5 @@
 <template>
-  <TicSingle :item="getItemCurrent" :key="getItemCurrent.id"/>
+  <TicSingle v-if="getItemCurrent" :item="getItemCurrent" :key="getItemCurrent.id"/>
 </template>
 
 <script>
@@ -20,7 +20,7 @@ export default {
     })
   },
   mounted() {
-    this.$store.commit("items/setCurrentItem");
+    this.$store.commit("items/setItemCurrent");
   }
 };
 </script>
