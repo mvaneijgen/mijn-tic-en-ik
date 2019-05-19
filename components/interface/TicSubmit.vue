@@ -43,6 +43,7 @@ form {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: $base-margin * 2;
+    border-color: $brand-light;
 
     max-width: 970px;
     @include media-breakpoint-up(lg) {
@@ -64,9 +65,13 @@ form {
       color: $brand-light;
     }
   }
-
   .btn-group {
     text-align: right;
+    * {
+      color: $brand-dark;
+      background-color: $brand-one;
+      border-color: $brand-one;
+    }
   }
 }
 ::-webkit-input-placeholder,

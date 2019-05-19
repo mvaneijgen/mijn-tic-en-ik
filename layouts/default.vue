@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container" :data-show-nav="getMenuToggle">
+    <div class="container" :data-show-nav="getMenuToggle" :data-bubble-active="getActiveBubble">
       <main>
         <!-- <transition name="fade" mode="out-in"> -->
         <nuxt/>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+// import { mapGetters } from "vuex";
 
 import SideNav from "~/components/base/SideNav.vue";
 import Footer from "@/components/base/Footer.vue";
@@ -33,9 +33,15 @@ export default {
     Logo
   },
   computed: {
-    ...mapGetters({
-      getMenuToggle: "interface/getMenuToggle"
-    })
+    // ...mapGetters({
+    //   getMenuToggle: "interface/getMenuToggle"
+    // })
+    getMenuToggle() {
+      return this.$store.getters["interface/getState"]("menuToggle");
+    },
+    getActiveBubble() {
+      return this.$store.getters["interface/getState"]("activeBubble");
+    }
   }
 };
 </script>

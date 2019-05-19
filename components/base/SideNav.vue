@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+// import { mapGetters } from "vuex";
 
 import CallToAction from "@/components/base/CallToAction.vue";
 
@@ -55,17 +55,26 @@ export default {
     return {};
   }, // End data
   computed: {
-    ...mapGetters({
-      getMenuToggle: "interface/getMenuToggle"
-    })
+    // ...mapGetters({
+    //   getMenuToggle: "interface/getMenuToggle"
+    // })
+    getMenuToggle() {
+      return this.$store.getters["interface/getState"]("menuToggle");
+    }
   },
   methods: {
     navToggle() {
-      console.warn("setMenuToggle");
-      this.$store.commit("interface/setMenuToggle");
+      this.$store.commit({
+        type: "interface/setStateSwitch",
+        key: "menuToggle"
+      });
+      // this.$store.commit("interface/setMenuToggle");
     },
     closeToggle() {
-      this.$store.commit("interface/setMenuToggle");
+      this.$store.commit({
+        type: "interface/setStateSwitch",
+        key: "menuToggle"
+      });
     }
   }
 };

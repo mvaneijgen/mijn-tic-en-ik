@@ -11,8 +11,20 @@ main {
   min-height: 100vh;
   z-index: 100;
   background-color: $brand-one;
+  overflow: hidden;
   @include media-breakpoint-up(lg) {
     margin-bottom: 90vh;
+  }
+}
+.container[data-bubble-active="true"] {
+  main {
+    background-color: $brand-dark;
+  }
+  .bubble.bubble {
+    background-color: $brand-one;
+  }
+  .logo {
+    color: $brand-light;
   }
 }
 .alloy-cards {

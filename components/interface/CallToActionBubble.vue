@@ -1,5 +1,5 @@
 <template>
-  <button @click="callToActionToggle" class="CallToActionBubble" :data-active="active">
+  <button @click="callToActionToggle" class="CallToActionBubble">
     <span>{{callToAction}}</span>
     <div ref="bubble" class="bubble"></div>
   </button>
@@ -14,8 +14,7 @@ export default {
       callToAction: "Deel jouw tic met de wereld",
       callToAction_link: "/submit",
       callToActionAlt: "Wat doe ik hier? Ik wil terug!",
-      callToActionAlt_link: "/",
-      active: false
+      callToActionAlt_link: "/"
     };
   }, // End data
   methods: {
@@ -24,8 +23,6 @@ export default {
       this.$router.push({
         path: this.callToAction_link
       });
-      // // change active ⚡️ status
-      // this.active = !this.active;
       // Switch text 📝
       [this.callToAction, this.callToActionAlt] = [
         this.callToActionAlt,
@@ -37,48 +34,109 @@ export default {
         this.callToAction_link
       ];
       // Animate 🐤 everything
+
+      this.animationScaleBubble();
+    },
+    // animationPopIn() {
+    //   const bubble = this.$refs.bubble;
+
+    //   const timelinePop = new TimelineMax();
+    //   timelinePop.from(bubble, 1, {
+    //     scale: 0,
+    //     ease: Elastic.easeOut.config(1, 0.3),
+    //     transformOrigin: "right bottom",
+    //     clearProps: "transform"
+    //   });
+    //   // .fromTo(
+    //   //   bubble,
+    //   //   1,
+    //   //   {
+    //   //     // delay: 0.5,
+    //   //     scale: 0
+    //   //     // ease: Elastic.easeOut.config(1, 0.3),
+    //   //     // transformOrigin: "right bottom"
+    //   //     // clearProps: "transform"
+    //   //   },
+    //   //   {
+    //   //     // delay: 0.5,
+    //   //     scale: 1,
+    //   //     ease: Elastic.easeOut.config(1, 0.3),
+    //   //     transformOrigin: "right bottom"
+    //   //     // clearProps: "transform"
+    //   //   }
+    //   // );
+    //   // .to(bubble, 0.1, { autoAlpha: 1 }, 0);
+    //   //   // .set(bubble, {
+    //   //   //   scale: 0,
+    //   //   //   transformOrigin: "right bottom",
+    //   //   //   clearProps: "opacity,visibility"
+    //   //   // })
+    //   //   .fromTo(
+    //   //     bubble,
+    //   //     1,
+    //   //     {
+    //   //       delay: 0.5,
+    //   //       scale: 0,
+    //   //       ease: Elastic.easeOut.config(1, 0.3),
+    //   //       transformOrigin: "right bottom"
+    //   //       // clearProps: "transform"
+    //   //     },
+    //   //     {
+    //   //       // delay: 0.5,
+    //   //       scale: 1
+    //   //       // ease: Elastic.easeOut.config(1, 0.3),
+    //   //       // transformOrigin: "right bottom"
+    //   //       // clearProps: "transform"
+    //   //     }
+    //   // );
+    //   // .from(bubble, 1, {
+    //   //   delay: 0.5,
+    //   //   scale: 0,
+    //   //   ease: Elastic.easeOut.config(1, 0.3),
+    //   //   transformOrigin: "right bottom"
+    //   //   // clearProps: "transform"
+    //   // });
+    //   // .to(".logo-svg", 1, { opacity: 1 }, 0);
+    //   // .from(bubble, 1, {
+    //   //   delay: 0.5,
+    //   //   // opacity: 0,
+    //   //   scale: 0,
+    //   //   ease: Elastic.easeOut.config(1, 0.3),
+    //   //   transformOrigin: "right bottom",
+    //   //   clearProps: "transform"
+    //   // });
+    // },
+    animationScaleBubble() {
       const bubble = this.$refs.bubble;
+      const that = this;
+      const timelineScale = new TimelineMax();
 
-      function pageTransition() {
-        var tl = new TimelineMax();
-
-        tl.to(bubble, 1.5, {
+      timelineScale
+        .to(bubble, 1.5, {
           scale: 20,
           ease: Power4.easeOut,
           transformOrigin: "center center"
         })
-          // .set(pageBackground, { css: { backgroundColor: background } })
-          .set(bubble, { clearProps: "all" });
-        // Pop the bubble back in to view
-        tl.eventCallback("onComplete", function() {
-          console.warn("done");
-          // popAnimation(color);
+        // .set(pageBackground, { css: { backgroundColor: background } })
+        .set(bubble, {
+          clearProps: "all"
+          // autoAlpha: 0,
+          // clearProps: "transform,transform-origin"
         });
+      // Pop the bubble back in to view
+      timelineScale.eventCallback("onComplete", function() {
+        that.$store.commit({
+          type: "interface/setStateSwitch",
+          key: "activeBubble"
+        });
+        // that.animationPopIn();
         // popAnimation(color);
-      }
-      pageTransition();
+      });
+      // popAnimation(color);
     }
   },
   mounted() {
-    // bubble.addEventListener("click", function() {
-    //   pageTransition(colorbubble, colorBackground);
-    // });
-
-    function popAnimation(color) {
-      var timelinePop = new TimelineMax();
-
-      timelinePop
-        .set(bubble, { css: { backgroundColor: colorBackground } })
-        .from(bubble, 1, {
-          delay: 0.5,
-          scale: 0,
-          ease: Elastic.easeOut.config(1, 0.3),
-          transformOrigin: "right bottom",
-          clearProps: "transform"
-        });
-    }
-
-    // document.onload = popAnimation(colorBackground);
+    // this.animationPopIn();
   }
 };
 </script>
@@ -96,6 +154,8 @@ export default {
   max-width: 220px;
   display: block;
   text-align: right;
+  background-color: transparent;
+  border: 0;
   span {
     display: inline-block;
     transform: translateY(-40px);

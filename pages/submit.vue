@@ -12,6 +12,12 @@ export default {
   data() {
     return {};
   }
+  // mounted() {
+  //   that.$store.commit({
+  //     type: "interface/setStateSwitch",
+  //     key: "activeBubble"
+  //   });
+  // }
 };
 </script>
 
