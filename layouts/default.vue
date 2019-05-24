@@ -5,7 +5,7 @@
         <!-- <transition name="fade" mode="out-in"> -->
         <nuxt/>
         <!-- </transition> -->
-        <CallToActionBubble/>
+        <!-- <CallToActionBubble/> -->
         <Logo/>
       </main>
       <Footer/>
@@ -23,9 +23,17 @@ import Logo from "~/components/interface/Logo.vue";
 import CallToActionBubble from "~/components/interface/CallToActionBubble.vue";
 
 export default {
+  head() {
+    return {
+      bodyAttrs: {
+        id: `page-${this.$route.name}`
+      }
+    };
+  },
   data() {
     return {};
   },
+
   components: {
     SideNav,
     Footer,

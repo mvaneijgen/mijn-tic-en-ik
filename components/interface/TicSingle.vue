@@ -1,14 +1,22 @@
 <template>
-  <blockquote>{{quote}}</blockquote>
+  <blockquote @click="singleTic">{{item.title}}</blockquote>
 </template>
 
 <script>
 export default {
-  props: ["quote"],
+  props: ["item"],
   name: "TicSingleQuote",
   data() {
     return {};
-  } // End data
+  }, // End data
+  methods: {
+    singleTic() {
+      this.$router.push({
+        path: `/tic/${this.item.id}`
+        // path: `/setup/${this.item.type}`
+      });
+    }
+  }
 };
 </script>
 
