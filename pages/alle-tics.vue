@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TicSingle v-for="item in getItems" :key="item.id" :item="item"/>
+    <TicSingle v-for="item in getItems" :key="item.id" :item="item" />
   </div>
 </template>
 

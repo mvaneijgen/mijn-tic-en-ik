@@ -333,9 +333,11 @@ export const getters = {
     return state.items;
   },
   // END Get items 💬
-
   getItemCurrent: state => {
     return state.itemCurrent;
+  },
+  getItemByID: state => itemID => {
+    return state.items.find(item => item.id == itemID);
   },
   //------------------------------------------------------//
   // Get random 🎲 item 💬

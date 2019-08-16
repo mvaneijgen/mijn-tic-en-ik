@@ -49,7 +49,7 @@ export default {
   // props: ['item'],
   name: "SlideNav",
   components: {
-    CallToAction
+    CallToAction,
   },
   data() {
     return {};

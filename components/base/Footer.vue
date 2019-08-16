@@ -2,7 +2,7 @@
   <footer>
     <div class="inner">
       <div class="column">
-        <CallToAction/>
+        <CallToAction />
       </div>
       <div class="column">
         <h3>Road map</h3>

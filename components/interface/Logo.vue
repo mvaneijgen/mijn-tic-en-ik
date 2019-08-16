@@ -14,19 +14,20 @@ export default {
   name: "Logo",
   data() {
     return {
-      title: "Logo"
+      title: "Logo",
     };
-  } // End data
+  }, // End data
 };
 </script>
 
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
 .logo {
+  font-size: 20px;
   text-decoration: none;
   padding: $base-margin;
   font-weight: 600;
-  font-size: 28px;
+
   line-height: 1.2em;
   color: $brand-dark;
   display: block;
@@ -38,6 +39,11 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
+  // @include media-breakpoint-down(sm) {
+  //   transform: scale(0.6);
+  //   transform-origin: bottom left;
+  // }
+
   > span {
     display: block;
     .amp {
@@ -45,6 +51,10 @@ export default {
       transform: translateX(-5px);
       display: inline-block;
     }
+  }
+  @include media-breakpoint-up(md) {
+    padding: 30px;
+    font-size: 28px;
   }
   @include media-breakpoint-up(lg) {
     padding: 30px;

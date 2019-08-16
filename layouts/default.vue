@@ -3,14 +3,14 @@
     <div class="container" :data-show-nav="getMenuToggle" :data-bubble-active="getActiveBubble">
       <main>
         <!-- <transition name="fade" mode="out-in"> -->
-        <nuxt/>
+        <nuxt />
         <!-- </transition> -->
         <!-- <CallToActionBubble/> -->
-        <Logo/>
+        <Logo />
       </main>
-      <Footer/>
+      <Footer />
     </div>
-    <SideNav/>
+    <SideNav />
   </div>
 </template>
 
@@ -26,8 +26,8 @@ export default {
   head() {
     return {
       bodyAttrs: {
-        id: `page-${this.$route.name}`
-      }
+        id: `page-${this.$route.name}`,
+      },
     };
   },
   data() {
@@ -38,7 +38,7 @@ export default {
     SideNav,
     Footer,
     CallToActionBubble,
-    Logo
+    Logo,
   },
   computed: {
     // ...mapGetters({
@@ -49,7 +49,7 @@ export default {
     },
     getActiveBubble() {
       return this.$store.getters["interface/getState"]("activeBubble");
-    }
-  }
+    },
+  },
 };
 </script>
