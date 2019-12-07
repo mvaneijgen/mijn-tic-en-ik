@@ -2,7 +2,7 @@
   <section class="tic">
     <div class="inner">
       <transition name="fade-out-slide-it" mode="out-in">
-        <TicSingle v-if="getItemCurrent" :item="getItemCurrent" :key="getItemCurrent.id"/>
+        <TicSingle v-if="getItemCurrent" :item="getItemCurrent" :key="getItemCurrent.id" />
       </transition>
       <div class="meta">
         <span>{{animatedNumber}} mensen delen deze tic</span>
@@ -22,22 +22,22 @@ import TicSingle from "~/components/interface/TicSingle.vue";
 
 export default {
   components: {
-    TicSingle
+    TicSingle,
   },
   data() {
     return {
-      tweenedNumber: 0
+      tweenedNumber: 0,
     };
   },
   computed: {
     ...mapGetters({
-      getItemCurrent: "items/getItemCurrent"
+      getItemCurrent: "items/getItemCurrent",
     }),
 
     // Animate the number 💯 using GSAP
     animatedNumber: function() {
       return this.tweenedNumber.toFixed(0);
-    }
+    },
   },
   methods: {
     getRandomItem() {
@@ -51,9 +51,9 @@ export default {
       if (e.key == "ArrowLeft") {
         this.$store.commit("items/setItemPreviousAsCurrent");
       }
-    }
+    },
   },
-  created() {
+  mounted() {
     if (process.client) {
       window.addEventListener("keydown", this.arrowNavigation);
     }
@@ -68,13 +68,14 @@ export default {
     // Animate the number 💯 using GSAP
     getItemCurrent: function(newValue) {
       TweenMax.to(this.$data, 0.5, { tweenedNumber: newValue.share });
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
+
 .tic {
   min-height: 80vh;
   display: flex;

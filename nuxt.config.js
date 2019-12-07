@@ -1,10 +1,10 @@
 const routerBase =
   process.env.DEPLOY_ENV === "GH_PAGES"
     ? {
-        router: {
-          base: "/mijn-tic-en-ik/",
-        },
-      }
+      router: {
+        base: "/mijn-tic-en-ik/",
+      },
+    }
     : {};
 
 module.exports = {
@@ -66,7 +66,7 @@ module.exports = {
     background_color: "#0ba",
     display: "standalone",
   },
-  plugins: ["~/plugins/firebase.js"],
+  // plugins: ["~/plugins/firebase.js"],
   // workbox: {
   //   runtimeCaching: [
   //     {

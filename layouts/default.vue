@@ -5,7 +5,7 @@
         <!-- <transition name="fade" mode="out-in"> -->
         <nuxt />
         <!-- </transition> -->
-        <!-- <CallToActionBubble/> -->
+        <CallToActionBubble />
         <Logo />
       </main>
       <Footer />

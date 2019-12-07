@@ -25,23 +25,22 @@ export default {
 @import "~/assets/css/common/_variables.scss";
 .container-blockquote {
   margin-top: $base-margin * 4;
-
-  // min-height: 220px;
-  // width: 970px;
-  // max-width: 100%;
   min-height: 220px;
-  width: 100%;
-  max-width: 970px;
+  max-width: 100%;
+  width: 970px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: $base-margin * 2;
-}
-blockquote {
-  display: inline;
+
   &:hover {
-    background-color: $brand-dark;
-    color: $brand-one;
-    cursor: pointer;
+    blockquote {
+      background-color: $brand-dark;
+      color: $brand-one;
+      cursor: pointer;
+    }
+  }
+  blockquote {
+    display: inline;
   }
 }
 </style>
