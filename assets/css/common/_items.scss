@@ -1,0 +1,36 @@
+.tic {
+  min-height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+.container-blockquote {
+}
+.meta {
+  text-align: center;
+  font-weight: 600;
+  > * {
+    margin-bottom: $base-margin;
+    display: inline-block;
+  }
+  @include media-breakpoint-up(lg) {
+    text-align: right;
+    > * {
+      margin-left: $base-margin;
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}
+.list {
+  .single-tic {
+    padding-top: $base-margin * 4;
+    padding-bottom: $base-margin * 4;
+
+    button {
+      @extend .btn--small;
+    }
+  }
+}

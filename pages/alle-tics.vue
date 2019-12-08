@@ -1,29 +1,31 @@
 <template>
   <div>
-    <TicSingle v-for="item in getItems" :key="item.id" :item="item" />
+    <Search />
+
+    <transition-group name="slide-up" appear tag="div" class="list">
+      <TicSingle v-for="item in getFilteredItems" :key="item.id" :item="item" :showMeta="true" />
+    </transition-group>
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 import TicSingle from "~/components/interface/TicSingle.vue";
+import Search from "~/components/interface/Search.vue";
 
 export default {
   components: {
-    TicSingle
+    TicSingle,
+    Search,
   },
   data() {
     return {};
   },
   computed: {
     ...mapGetters({
-      getItems: "items/getItems"
+      getFilteredItems: "items/getFilteredItems",
     }),
-
-    // Animate the number 💯 using GSAP
-    animatedNumber: function() {
-      return this.tweenedNumber.toFixed(0);
-    }
-  }
+  },
 };
 </script>

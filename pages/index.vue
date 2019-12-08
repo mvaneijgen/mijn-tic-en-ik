@@ -1,14 +1,16 @@
 <template>
   <section class="tic">
     <div class="inner">
+
       <transition name="fade-out-slide-it" mode="out-in">
         <TicSingle v-if="getItemCurrent" :item="getItemCurrent" :key="getItemCurrent.id" />
       </transition>
+
       <div class="meta">
         <span>{{animatedNumber}} mensen delen deze tic</span>
         <button ref="loseFocus" @click="getRandomItem">Dit doe ik ook!</button>
       </div>
-      <!-- <TicSingle v-if="getItemCurrent" :item="getItemCurrent" :key="getItemCurrent.id"/> -->
+
     </div>
   </section>
 </template>
@@ -72,33 +74,4 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-@import "~/assets/css/common/_variables.scss";
-
-.tic {
-  min-height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 15px;
-}
-.meta {
-  text-align: center;
-  font-weight: 600;
-  > * {
-    margin-bottom: $base-margin;
-    display: inline-block;
-  }
-  @include media-breakpoint-up(lg) {
-    text-align: right;
-    > * {
-      margin-left: $base-margin;
-      &:first-child {
-        margin-left: 0;
-      }
-    }
-  }
-}
-</style>
 

@@ -250,3 +250,19 @@ $base-transition: 300ms;
   opacity: 0;
 }
 // END Fade out and slide in transition -------------------------------------//
+.slide-up-enter {
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+.slide-up-leave {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+.slide-up-leave-active,
+.slide-up-enter-active,
+.slide-up-move {
+  transition: transform;
+  transition-duration: 600ms;
+  transition-timing-function: ease;
+}

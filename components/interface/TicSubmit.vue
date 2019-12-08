@@ -21,7 +21,7 @@ export default {
   }, // End data
   mounted() {
     this.$refs.inputSubmit.focus();
-  }
+  },
 };
 </script>
 
@@ -45,7 +45,7 @@ form {
     margin-bottom: $base-margin * 2;
     border-color: $brand-light;
 
-    max-width: 970px;
+    max-width: $container;
     @include media-breakpoint-up(lg) {
       font-size: 42px;
       margin-bottom: $base-margin * 3;

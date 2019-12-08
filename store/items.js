@@ -318,8 +318,15 @@ const initItems = [
 
 export const state = () => ({
   items: [...initItems], // Items 💬
+  loading: false,
   itemCurrent: false,
   itemPrevious: false,
+  search: '',
+  sort: '',
+  // search: {
+  //   query: '',
+  //   sort: '',
+  // },
 });
 
 //------------------------------------------------------//
@@ -331,6 +338,22 @@ export const getters = {
   //------------------------------------------------------//
   getItems: state => {
     return state.items;
+  },
+  getFilteredItems: state => {
+    const items = state.items.filter(item => {
+      return item.title.toLowerCase().includes(state.search.toLowerCase());
+    })
+    if (state.sort === 'popular') {
+      return items.sort((a, b) => a.share - b.share).reverse()
+    } else if (state.sort === 'unpopular') {
+      return items.sort((a, b) => a.share - b.share);
+      // } else if (condition) {
+      //   return items.sort((a, b) => a.share - b.share);
+      // } else if (condition) {
+      //   return items.sort((a, b) => a.share - b.share);
+    } else {
+      return items;
+    }
   },
   // END Get items 💬
   getItemCurrent: state => {
@@ -350,6 +373,9 @@ export const getters = {
 // END Getters -------------------------------------//
 
 export const mutations = {
+  setItems(state, payload) {
+    state.items = payload;
+  },
   setItemCurrent(state) {
     // Save 💾 current item 💬 to use later
     state.itemPrevious = state.itemCurrent;
@@ -361,4 +387,14 @@ export const mutations = {
   setItemPreviousAsCurrent(state) {
     state.itemCurrent = state.itemPrevious;
   },
+  setSearch(state, payload) {
+    state.search = payload;
+  },
+  setSort(state, payload) {
+    state.sort = payload;
+  },
+};
+
+export const actions = {
+
 };

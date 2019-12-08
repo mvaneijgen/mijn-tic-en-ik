@@ -1,12 +1,33 @@
 <template>
-  <div class="container-blockquote">
-    <blockquote @click="singleTic">{{item.title}}</blockquote>
+  <div class="container single-tic">
+
+    <div class="container-blockquote">
+      <blockquote @click="singleTic">{{item.title}}</blockquote>
+    </div>
+
+    <template v-if="showMeta">
+      <div class="meta">
+        <span>{{item.share}} mensen delen deze tic</span>
+        <button ref="loseFocus">Dit doe ik ook!</button>
+      </div>
+    </template>
+
   </div>
 </template>
 
 <script>
 export default {
-  props: ["item"],
+  // props: ["item"],
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+    showMeta: {
+      type: Boolean,
+      required: false,
+    },
+  },
   name: "TicSingleQuote",
   data() {
     return {};
@@ -23,13 +44,15 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
+.container {
+  width: $container;
+  margin-left: auto;
+  margin-right: auto;
+}
 .container-blockquote {
   margin-top: $base-margin * 4;
   min-height: 220px;
   max-width: 100%;
-  width: 970px;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: $base-margin * 2;
 
   &:hover {
@@ -43,4 +66,7 @@ export default {
     display: inline;
   }
 }
+// .meta {
+//   margin-top: $base-margin * 34;
+// }
 </style>

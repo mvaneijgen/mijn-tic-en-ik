@@ -1,14 +1,11 @@
 <template>
   <section class="tic">
-    <nuxt-link to="/" class="alloy-back">Terug naar home</nuxt-link>
     <div class="inner">
+
       <transition name="fade-out-slide-it" mode="out-in">
-        <TicSingle :item="getItemByID" :key="getItemByID.id" />
+        <TicSingle :item="getItemByID" :key="getItemByID.id" :showMeta="true" />
       </transition>
-      <div class="meta">
-        <span>{{ getItemByID.share }} mensen delen deze tic</span>
-        <button ref="loseFocus">Dit doe ik ook!</button>
-      </div>
+
     </div>
   </section>
 </template>

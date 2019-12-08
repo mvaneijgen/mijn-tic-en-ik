@@ -6,7 +6,7 @@
 
 ```bash
 # install dependencies
-$ yarn install # Or yarn install
+$ yarn install # Or npm install
 
 # serve with hot reload at localhost:3000
 $ yarn run dev
@@ -18,5 +18,7 @@ $ yarn start
 # generate static project
 $ yarn run generate
 ```
+
+<!-- Note, some how `yarn` stopped working 7 Dec 2019 it wasn't creating a .lock file, no idea why.  -->
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
