@@ -24,7 +24,7 @@
  */
 
 /*!
- * GSAP 3.0.2
+ * GSAP 3.0.4
  * https://greensock.com
  *
  * @license Copyright 2008-2019, GreenSock. All rights reserved.
@@ -38,6 +38,16 @@
  * (c) 2018-present egoist <0x142857@gmail.com>
  * Released under the MIT License.
  */
+
+/*!
+ * CSSPlugin 3.0.4
+ * https://greensock.com
+ *
+ * Copyright 2008-2019, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
 
 /*!
  * vue-client-only v2.0.0
