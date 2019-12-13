@@ -7,8 +7,11 @@
       </transition>
 
       <div class="meta">
-        <span>{{animatedNumber}} mensen delen deze tic</span>
-        <button ref="loseFocus" @click="getRandomItem">Dit doe ik ook!</button>
+        <button @click="getRandomItem" class="btn--stealth">Volgende tic</button>
+        <div class="alloy-right">
+          <span>{{animatedNumber}} mensen delen deze tic</span>
+          <button ref="loseFocus" @click="getRandomItem">Dit doe ik ook!</button>
+        </div>
       </div>
 
     </div>
@@ -74,4 +77,12 @@ export default {
   },
 };
 </script>
-
+<style lang="scss" scoped>
+// .alloy-btn-group {
+//   > * {
+//     text-align: center;
+//     display: block !important;
+//   }
+// }
+//
+</style>

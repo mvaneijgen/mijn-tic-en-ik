@@ -8,21 +8,30 @@
 .container-blockquote {
 }
 .meta {
-  text-align: center;
-  font-weight: 600;
-  > * {
-    margin-bottom: $base-margin;
-    display: inline-block;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
   @include media-breakpoint-up(lg) {
-    text-align: right;
-    > * {
-      margin-left: $base-margin;
-      &:first-child {
-        margin-left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    span {
+      margin-right: $base-margin;
+    }
+  }
+  @include media-breakpoint-down(sm) {
+    .alloy-right {
+      order: -1;
+      text-align: center;
+      > * {
+        display: inline-block;
+        margin-bottom: $base-margin;
       }
     }
   }
+  // text-align: center;
+  // font-weight: 600;
 }
 .list {
   .single-tic {
@@ -32,5 +41,56 @@
     button {
       @extend .btn--small;
     }
+  }
+}
+.AlloyBubble {
+  z-index: 1000;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: $base-margin;
+  text-decoration: none;
+  max-width: 220px;
+  display: block;
+  text-align: right;
+  background-color: transparent;
+  border: 0;
+
+  transform: scale(0.7);
+
+  @include media-breakpoint-up(lg) {
+    transform: scale(1);
+  }
+  transform-origin: "bottom right";
+  transition: transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease;
+  &:hover {
+    transform: scale(0.9);
+    @include media-breakpoint-up(lg) {
+      transform: scale(1.1);
+    }
+  }
+  span {
+    display: inline-block;
+    transform: translateY(-40px);
+    position: relative;
+    z-index: 1;
+    color: $brand-one;
+    font-size: 22px;
+  }
+  .bubble {
+    // z-index: 100;
+    width: 350px;
+    height: 350px;
+    background-color: $brand-dark;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -100px;
+    right: -100px;
+    // transition: transform;
+    // transition-duration: 300ms;
+    // transition-timing-function: ease;
   }
 }

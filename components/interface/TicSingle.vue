@@ -44,11 +44,6 @@ export default {
 
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
-.container {
-  width: $container;
-  margin-left: auto;
-  margin-right: auto;
-}
 .container-blockquote {
   margin-top: $base-margin * 4;
   min-height: 220px;

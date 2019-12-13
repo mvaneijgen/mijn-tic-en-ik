@@ -66,7 +66,7 @@ module.exports = {
     background_color: "#0ba",
     display: "standalone",
   },
-  // plugins: ["~/plugins/firebase.js"],
+  // plugins: ["~/plugins/gsap.js"],
   // workbox: {
   //   runtimeCaching: [
   //     {

@@ -49,6 +49,12 @@ main {
 // Side navigration aside
 //------------------------------------------------------//
 .container {
+  max-width: $container;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.container {
   transition: transform;
   transition-duration: 300ms;
   transition-timing-function: ease;

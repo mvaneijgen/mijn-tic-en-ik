@@ -1,11 +1,15 @@
 <template>
   <div>
-    <div class="container" :data-show-nav="getMenuToggle" :data-bubble-active="getActiveBubble">
+    <div class="container-full" :data-show-nav="getMenuToggle">
       <main>
         <!-- <transition name="fade" mode="out-in"> -->
         <nuxt />
         <!-- </transition> -->
-        <CallToActionBubble />
+        <!-- <CallToActionBubble /> -->
+
+        <SubmitBubble v-if="'submit' != this.$route.name" />
+        <BackBubble v-else />
+
         <Logo />
       </main>
       <Footer />
@@ -20,7 +24,9 @@
 import SideNav from "~/components/base/SideNav.vue";
 import Footer from "@/components/base/Footer.vue";
 import Logo from "~/components/interface/Logo.vue";
-import CallToActionBubble from "~/components/interface/CallToActionBubble.vue";
+// import CallToActionBubble from "~/components/interface/CallToActionBubble.vue";
+import SubmitBubble from "~/components/interface/SubmitBubble.vue";
+import BackBubble from "~/components/interface/BackBubble.vue";
 
 export default {
   head() {
@@ -37,7 +43,9 @@ export default {
   components: {
     SideNav,
     Footer,
-    CallToActionBubble,
+    // CallToActionBubble,
+    SubmitBubble,
+    BackBubble,
     Logo,
   },
   computed: {
@@ -47,9 +55,9 @@ export default {
     getMenuToggle() {
       return this.$store.getters["interface/getState"]("menuToggle");
     },
-    getActiveBubble() {
-      return this.$store.getters["interface/getState"]("activeBubble");
-    },
+    // getActiveBubble() {
+    //   return this.$store.getters["interface/getState"]("activeBubble");
+    // },
   },
 };
 </script>

@@ -61,4 +61,12 @@ button,
   font-size: 14px;
   padding: 5px 15px;
 }
+.btn--stealth {
+  font-size: 16px;
+  text-decoration: underline;
+  padding: 0;
+  background-color: transparent;
+  color: $brand-dark;
+  border: 0;
+}
 // END Button styles -------------------------------------//

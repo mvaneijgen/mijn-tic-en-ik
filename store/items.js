@@ -318,6 +318,7 @@ const initItems = [
 
 export const state = () => ({
   items: [...initItems], // Items 💬
+  myItems: null,
   loading: false,
   itemCurrent: false,
   itemPrevious: false,
@@ -338,6 +339,9 @@ export const getters = {
   //------------------------------------------------------//
   getItems: state => {
     return state.items;
+  },
+  getMyItems: state => {
+    return state.myTics;
   },
   getFilteredItems: state => {
     const items = state.items.filter(item => {
@@ -375,6 +379,9 @@ export const getters = {
 export const mutations = {
   setItems(state, payload) {
     state.items = payload;
+  },
+  setMyItems(state, payload) {
+    state.myItems = payload;
   },
   setItemCurrent(state) {
     // Save 💾 current item 💬 to use later
