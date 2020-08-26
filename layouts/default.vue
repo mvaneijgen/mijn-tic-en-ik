@@ -6,7 +6,7 @@
         <nuxt />
         <!-- </transition> -->
         <!-- <CallToActionBubble /> -->
-
+        <!-- <SubmitBubble /> -->
         <SubmitBubble v-if="'submit' != this.$route.name" />
         <BackBubble v-else />
 

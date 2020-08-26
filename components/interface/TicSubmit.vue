@@ -3,7 +3,7 @@
     <div class="inner">
       <form action>
         <div class="input-group">
-          <textarea ref="inputSubmit" placeholder="Remember, be nice!" cols="30" rows="2"></textarea>
+          <textarea ref="inputSubmit" placeholder="Vertel mij je tic" cols="30" rows="2"></textarea>
         </div>
         <div class="btn-group">
           <input type="submit" value="Verstuur">

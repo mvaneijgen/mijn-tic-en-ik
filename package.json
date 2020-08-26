@@ -15,9 +15,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
-    "@nuxtjs/axios": "^5.3.3",
-    "firebase": "^7.5.2",
+    "@nuxtjs/apollo": "^4.0.0-rc19",
+    "@nuxtjs/axios": "^5.12.2",
     "fsevents": "1.2.9",
+    "graphql-tag": "^2.10.1",
     "gsap": "^3.0.2",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.10.2"

@@ -43,9 +43,12 @@
     }
   }
 }
+//------------------------------------------------------//
+// Bubble 💭
+//------------------------------------------------------//
 .AlloyBubble {
-  z-index: 1000;
   cursor: pointer;
+
   position: absolute;
   bottom: 0;
   right: 0;
@@ -56,32 +59,18 @@
   text-align: right;
   background-color: transparent;
   border: 0;
-
-  transform: scale(0.7);
-
-  @include media-breakpoint-up(lg) {
-    transform: scale(1);
-  }
-  transform-origin: "bottom right";
-  transition: transform;
-  transition-duration: 300ms;
-  transition-timing-function: ease;
   &:hover {
-    transform: scale(0.9);
-    @include media-breakpoint-up(lg) {
-      transform: scale(1.1);
-    }
+    background-color: transparent;
   }
   span {
     display: inline-block;
     transform: translateY(-40px);
     position: relative;
     z-index: 1;
-    color: $brand-one;
-    font-size: 22px;
+    color: $brand-light;
   }
   .bubble {
-    // z-index: 100;
+    z-index: -1;
     width: 350px;
     height: 350px;
     background-color: $brand-dark;
@@ -93,4 +82,19 @@
     // transition-duration: 300ms;
     // transition-timing-function: ease;
   }
+
+  // &:hover {
+  //   .bubble {
+  //     transform: scale(1.1);
+  //   }
+  // }
+  &[data-active="true"] {
+    span {
+      color: $brand-dark;
+    }
+    .bubble {
+      background-color: $brand-one;
+    }
+  }
 }
+// END Bubble 💭  -------------------------------------//

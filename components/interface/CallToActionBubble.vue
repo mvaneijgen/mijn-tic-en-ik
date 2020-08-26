@@ -1,143 +1,110 @@
 <template>
-  <button @click="callToActionToggle" class="CallToActionBubble">
-    <span>{{callToAction}}</span>
-    <div ref="bubble" class="bubble"></div>
-  </button>
+  <div>
+    <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false" appear>
+      <button @click="callToActionToggle" class="CallToActionBubble" v-if="toggle">
+        <span>{{callToAction}}</span>
+        <div class="bubble"></div>
+      </button>
+    </transition>
+    <transition @before-enter="beforeEnter" @enter="enter" @leave="leave" :css="false" appear>
+      <button @click="callToActionToggle" class="CallToActionBubble" v-if="!toggle" :data-active="!toggle">
+        <span>{{callToActionAlt}}</span>
+        <div class="bubble"></div>
+      </button>
+    </transition>
+  </div>
 </template>
 
 <script>
-import { TweenMax, TimelineMax } from "gsap";
+import { gsap } from "gsap";
+
 export default {
   name: "CallToActionBubble",
   data() {
     return {
+      toggle: true,
       callToAction: "Deel jouw tic met de wereld",
       callToAction_link: "/submit",
       callToActionAlt: "Wat doe ik hier? Ik wil terug!",
-      callToActionAlt_link: "/"
+      callToActionAlt_link: "/",
     };
   }, // End data
   methods: {
     callToActionToggle() {
-      // Update route 📲
-      this.$router.push({
-        path: this.callToAction_link
-      });
-      // Switch text 📝
-      [this.callToAction, this.callToActionAlt] = [
-        this.callToActionAlt,
-        this.callToAction
-      ];
+      this.toggle = !this.toggle;
+      // // Switch text 📝
+      // [this.callToAction, this.callToActionAlt] = [
+      //   this.callToActionAlt,
+      //   this.callToAction,
+      // ];
       // Switch links 🔗
-      [this.callToAction_link, this.callToActionAlt_link] = [
-        this.callToActionAlt_link,
-        this.callToAction_link
-      ];
+      // [this.callToAction_link, this.callToActionAlt_link] = [
+      //   this.callToActionAlt_link,
+      //   this.callToAction_link,
+      // ];
       // Animate 🐤 everything
-
-      this.animationScaleBubble();
+      // this.animationScaleBubble();
     },
-    // animationPopIn() {
-    //   const bubble = this.$refs.bubble;
-
-    //   const timelinePop = new TimelineMax();
-    //   timelinePop.from(bubble, 1, {
-    //     scale: 0,
-    //     ease: Elastic.easeOut.config(1, 0.3),
-    //     transformOrigin: "right bottom",
-    //     clearProps: "transform"
-    //   });
-    //   // .fromTo(
-    //   //   bubble,
-    //   //   1,
-    //   //   {
-    //   //     // delay: 0.5,
-    //   //     scale: 0
-    //   //     // ease: Elastic.easeOut.config(1, 0.3),
-    //   //     // transformOrigin: "right bottom"
-    //   //     // clearProps: "transform"
-    //   //   },
-    //   //   {
-    //   //     // delay: 0.5,
-    //   //     scale: 1,
-    //   //     ease: Elastic.easeOut.config(1, 0.3),
-    //   //     transformOrigin: "right bottom"
-    //   //     // clearProps: "transform"
-    //   //   }
-    //   // );
-    //   // .to(bubble, 0.1, { autoAlpha: 1 }, 0);
-    //   //   // .set(bubble, {
-    //   //   //   scale: 0,
-    //   //   //   transformOrigin: "right bottom",
-    //   //   //   clearProps: "opacity,visibility"
-    //   //   // })
-    //   //   .fromTo(
-    //   //     bubble,
-    //   //     1,
-    //   //     {
-    //   //       delay: 0.5,
-    //   //       scale: 0,
-    //   //       ease: Elastic.easeOut.config(1, 0.3),
-    //   //       transformOrigin: "right bottom"
-    //   //       // clearProps: "transform"
-    //   //     },
-    //   //     {
-    //   //       // delay: 0.5,
-    //   //       scale: 1
-    //   //       // ease: Elastic.easeOut.config(1, 0.3),
-    //   //       // transformOrigin: "right bottom"
-    //   //       // clearProps: "transform"
-    //   //     }
-    //   // );
-    //   // .from(bubble, 1, {
-    //   //   delay: 0.5,
-    //   //   scale: 0,
-    //   //   ease: Elastic.easeOut.config(1, 0.3),
-    //   //   transformOrigin: "right bottom"
-    //   //   // clearProps: "transform"
-    //   // });
-    //   // .to(".logo-svg", 1, { opacity: 1 }, 0);
-    //   // .from(bubble, 1, {
-    //   //   delay: 0.5,
-    //   //   // opacity: 0,
-    //   //   scale: 0,
-    //   //   ease: Elastic.easeOut.config(1, 0.3),
-    //   //   transformOrigin: "right bottom",
-    //   //   clearProps: "transform"
-    //   // });
-    // },
-    animationScaleBubble() {
-      const bubble = this.$refs.bubble;
-      const that = this;
-      const timelineScale = new TimelineMax();
-
-      timelineScale
-        .to(bubble, 1.5, {
-          scale: 20,
-          ease: Power4.easeOut,
-          transformOrigin: "center center"
-        })
-        // .set(pageBackground, { css: { backgroundColor: background } })
-        .set(bubble, {
-          clearProps: "all"
-          // autoAlpha: 0,
-          // clearProps: "transform,transform-origin"
-        });
-      // Pop the bubble back in to view
-      timelineScale.eventCallback("onComplete", function() {
-        that.$store.commit({
-          type: "interface/setStateSwitch",
-          key: "activeBubble"
-        });
-        // that.animationPopIn();
-        // popAnimation(color);
+    //------------------------------------------------------//
+    // Bubble 💭 transtion
+    //------------------------------------------------------//
+    beforeEnter(el) {
+      // we'll place our starting style here
+      gsap.set(el.querySelector(".bubble"), {
+        scale: 0,
       });
-      // popAnimation(color);
-    }
+      gsap.set(el.querySelector("span"), {
+        opacity: 0,
+      });
+    },
+    enter(el, done) {
+      // style to transition to on enter
+      gsap.to(el.querySelector(".bubble"), {
+        duration: 1,
+        delay: 2,
+        transformOrigin: "right bottom",
+        scale: 1,
+        ease: "elastic.out(1, 0.5)",
+        onComplete: () => {
+          gsap.to(el.querySelector("span"), {
+            duration: 0.3,
+            opacity: 1,
+          });
+          done();
+        },
+      });
+    },
+    leave(el, done) {
+      // style to transition away to on leave
+      gsap.to(el.querySelector("span"), {
+        duration: 0.3,
+        opacity: 0,
+      });
+      gsap.to(el.querySelector(".bubble"), {
+        duration: 1,
+        scale: 15,
+        transformOrigin: "center center",
+        // onComplete: done,
+        onComplete: () => {
+          // this.showPage = !this.showPage;
+          // Update route 📲
+          this.$router.push({
+            path: this.callToAction_link,
+          });
+          // Switch links 🔗
+          [this.callToAction_link, this.callToActionAlt_link] = [
+            this.callToActionAlt_link,
+            this.callToAction_link,
+          ];
+          done();
+        },
+      });
+    },
+    // END Bubble 💭 transtion  -------------------------------------//
   },
   mounted() {
     // this.animationPopIn();
-  }
+  },
 };
 </script>
 
@@ -172,17 +139,20 @@ export default {
     position: absolute;
     bottom: -100px;
     right: -100px;
-    transition: transform;
-    transition-duration: 300ms;
-    transition-timing-function: ease;
+    // transition: transform;
+    // transition-duration: 300ms;
+    // transition-timing-function: ease;
   }
 
-  &:hover {
-    .bubble {
-      transform: scale(1.1);
-    }
-  }
+  // &:hover {
+  //   .bubble {
+  //     transform: scale(1.1);
+  //   }
+  // }
   &[data-active="true"] {
+    span {
+      color: $brand-dark;
+    }
     .bubble {
       background-color: $brand-one;
     }

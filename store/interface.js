@@ -1,6 +1,6 @@
 export const state = () => ({
   menuToggle: false,
-  activeBubble: false,
+  bubbleToggle: false,
 });
 
 //------------------------------------------------------//
@@ -26,7 +26,7 @@ export const mutations = {
   // setMenuToggle(state) {
   //   state.menuToggle = !state.menuToggle;
   // },
-  // setMenuToggle(state) {
-  //   state.menuToggle = !state.menuToggle;
+  // activeBubble(state) {
+  //   state.activeBubble = !state.activeBubble;
   // },
 };
