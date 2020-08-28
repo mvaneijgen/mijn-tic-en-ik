@@ -48,6 +48,7 @@ button,
   transition-timing-function: ease;
   margin-bottom: $base-margin;
   display: inline-block;
+  cursor: pointer;
   &:focus,
   &:hover {
     outline: none;

@@ -14,7 +14,9 @@ import { gsap } from "gsap";
 export default {
   name: "SubmitBubble",
   data() {
-    return {};
+    return {
+      clicked: false,
+    };
   }, // End data
   computed: {
     getBubbleToggle() {
@@ -23,6 +25,7 @@ export default {
   },
   methods: {
     navSubmit() {
+      this.clicked = true;
       // this.show = !this.show;
       this.$store.commit({
         type: "interface/setStateSwitch",
@@ -67,12 +70,14 @@ export default {
         duration: 1,
         scale: 15,
         transformOrigin: "center center",
-        // onComplete: done,
         onComplete: () => {
-          // Update route 📲
-          this.$router.push({
-            path: "/",
-          });
+          if (this.clicked) {
+            this.clicked = false;
+            // Update route 📲
+            this.$router.push({
+              path: "/",
+            });
+          }
           done();
         },
       });

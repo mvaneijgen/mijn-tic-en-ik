@@ -14,7 +14,7 @@ export default {
   name: "SubmitBubble",
   data() {
     return {
-      show: true,
+      clicked: false,
     };
   }, // End data
   computed: {
@@ -24,10 +24,16 @@ export default {
   },
   methods: {
     navSubmit() {
+      this.clicked = true;
       // this.show = !this.show;
       this.$store.commit({
         type: "interface/setStateSwitch",
         key: "bubbleToggle",
+      });
+      this.$store.commit({
+        type: "interface/setStateSwitch",
+        key: "bubbleToggleUrl",
+        value: this.$route.path,
       });
     },
     //------------------------------------------------------//
@@ -71,18 +77,19 @@ export default {
         transformOrigin: "center center",
         // onComplete: done,
         onComplete: () => {
-          // Update route 📲
-          this.$router.push({
-            path: "/submit",
-          });
+          if (this.clicked) {
+            this.clicked = false;
+            // Update route 📲
+            this.$router.push({
+              path: "/submit",
+            });
+          }
           done();
         },
       });
     },
     // END Bubble 💭 transtion  -------------------------------------//
   },
-  mounted() {
-    // this.bubbleIn();
-  },
+  mounted() {},
 };
 </script>

@@ -3,7 +3,7 @@
     <div class="inner">
       <form action>
         <div class="input-group">
-          <textarea ref="inputSubmit" placeholder="Vertel mij je tic" cols="30" rows="2"></textarea>
+          <textarea ref="inputSubmit" placeholder="Vertel mij je tics" cols="30" rows="2"></textarea>
         </div>
         <div class="btn-group">
           <input type="submit" value="Verstuur">
@@ -21,6 +21,11 @@ export default {
   }, // End data
   mounted() {
     this.$refs.inputSubmit.focus();
+    this.$store.commit({
+      type: "interface/setStateSwitch",
+      key: "bubbleToggle",
+      value: true,
+    });
   },
 };
 </script>

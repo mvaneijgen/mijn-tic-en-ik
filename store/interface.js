@@ -1,6 +1,8 @@
 export const state = () => ({
   menuToggle: false,
   bubbleToggle: false,
+  bubbleToggleUrl: null,
+  bubbleActive: false,
 });
 
 //------------------------------------------------------//
@@ -21,7 +23,14 @@ export const getters = {
 
 export const mutations = {
   setStateSwitch(state, payload) {
-    state[payload.key] = !state[payload.key];
+    if (payload.value) {
+      state[payload.key] = payload.value;
+    } else {
+      state[payload.key] = !state[payload.key];
+    }
+  },
+  setBubbleToggleUrl(state, payload) {
+    state[payload.key] = payload.value;
   },
   // setMenuToggle(state) {
   //   state.menuToggle = !state.menuToggle;

@@ -10,7 +10,7 @@
         <button @click="getRandomItem" class="btn--stealth">Volgende tic</button>
         <div class="alloy-right">
           <span>{{animatedNumber}} mensen delen deze tic</span>
-          <button ref="loseFocus" @click="getRandomItem">Dit doe ik ook!</button>
+          <button class="btn-fancy" ref="loseFocus" @click="getRandomItem">Dit doe ik ook!</button>
         </div>
       </div>
 
@@ -21,7 +21,7 @@
 <script>
 import { mapGetters } from "vuex";
 
-import { TweenMax, TimelineMax } from "gsap";
+import { gsap } from "gsap";
 
 import TicSingle from "~/components/interface/TicSingle.vue";
 
@@ -40,12 +40,21 @@ export default {
     }),
 
     // Animate the number 💯 using GSAP
-    animatedNumber: function() {
+    animatedNumber: function () {
       return this.tweenedNumber.toFixed(0);
     },
   },
   methods: {
     getRandomItem() {
+      gsap
+        .timeline()
+        .to(this.$refs.loseFocus, {
+          duration: 0.2,
+          boxShadow: "0 0 0 20px rgba(30, 30, 30, 0.3)",
+        })
+        .set(this.$refs.loseFocus, {
+          boxShadow: "0 0 0 0 rgba(30, 30, 30, 0.3)",
+        });
       this.$store.commit("items/setItemCurrent");
       this.$refs.loseFocus.blur();
     },
@@ -63,7 +72,7 @@ export default {
       window.addEventListener("keydown", this.arrowNavigation);
     }
   },
-  beforeDestroy: function() {
+  beforeDestroy: function () {
     window.removeEventListener("keydown", this.arrowNavigation);
   },
   created() {
@@ -71,13 +80,15 @@ export default {
   },
   watch: {
     // Animate the number 💯 using GSAP
-    getItemCurrent: function(newValue) {
-      TweenMax.to(this.$data, 0.5, { tweenedNumber: newValue.share });
+    getItemCurrent: function (newValue) {
+      gsap.to(this.$data, 0.5, { tweenedNumber: newValue.share });
     },
   },
 };
 </script>
 <style lang="scss" scoped>
+@import "~/assets/css/common/_variables.scss";
+
 // .alloy-btn-group {
 //   > * {
 //     text-align: center;
@@ -85,4 +96,7 @@ export default {
 //   }
 // }
 //
+.btn-fancy {
+  box-shadow: 0 0 0 0 rgba($brand-dark, 0.3);
+}
 </style>

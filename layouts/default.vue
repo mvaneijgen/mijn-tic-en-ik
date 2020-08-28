@@ -59,5 +59,6 @@ export default {
     //   return this.$store.getters["interface/getState"]("activeBubble");
     // },
   },
+  mounted() {},
 };
 </script>
