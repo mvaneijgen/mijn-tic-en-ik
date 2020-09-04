@@ -42,7 +42,8 @@ export default {
       query: tics,
       update(data) {
         this.$store.commit("items/setItems", data.tics);
-        return data.tics;
+        this.$store.commit("items/setItemCurrent");
+        // return data.tics;
       },
     },
   },
@@ -79,13 +80,6 @@ export default {
       }
     },
   },
-  // computed: {}, // Data with computed logic
-  // methods: {}, // Are functions run on user actions example @click or on lifecycle hooks
-  // watch: {}, // Watchs data, needs to have the same name as the data that is being watched
-  // directives: {}, // Create custom v-directives accepts element and bindings
-
-  // // Lifecycle hook. Check for more https://vuejs.org/v2/guide/instance.html or https://vuejs.org/v2/api/#Options-Lifecycle-Hooks
-
   mounted() {
     if (process.client) {
       window.addEventListener("keydown", this.arrowNavigation);
@@ -94,9 +88,9 @@ export default {
   beforeDestroy: function () {
     window.removeEventListener("keydown", this.arrowNavigation);
   },
-  created() {
-    this.$store.commit("items/setItemCurrent");
-  },
+  // created() {
+  //   this.$store.commit("items/setItemCurrent");
+  // },
   watch: {
     // Animate the number 💯 using GSAP
     getItemCurrent: function (newValue) {
@@ -110,13 +104,6 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
 
-// .alloy-btn-group {
-//   > * {
-//     text-align: center;
-//     display: block !important;
-//   }
-// }
-//
 .btn-fancy {
   box-shadow: 0 0 0 0 rgba($brand-dark, 0.3);
 }
