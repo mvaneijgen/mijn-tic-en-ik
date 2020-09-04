@@ -1,0 +1,13 @@
+query GetTics {
+  tics {
+    title
+    id
+    date
+    likes_aggregate {
+      aggregate {
+        count
+      }
+    }
+  }
+}
+

@@ -317,7 +317,7 @@ const initItems = [
 ];
 
 export const state = () => ({
-  items: [...initItems], // Items 💬
+  items: [], // Items 💬
   myItems: null,
   loading: false,
   itemCurrent: false,
@@ -343,22 +343,22 @@ export const getters = {
   getMyItems: state => {
     return state.myTics;
   },
-  getFilteredItems: state => {
-    const items = state.items.filter(item => {
-      return item.title.toLowerCase().includes(state.search.toLowerCase());
-    })
-    if (state.sort === 'popular') {
-      return items.sort((a, b) => a.share - b.share).reverse()
-    } else if (state.sort === 'unpopular') {
-      return items.sort((a, b) => a.share - b.share);
-      // } else if (condition) {
-      //   return items.sort((a, b) => a.share - b.share);
-      // } else if (condition) {
-      //   return items.sort((a, b) => a.share - b.share);
-    } else {
-      return items;
-    }
-  },
+  // getFilteredItems: state => {
+  //   const items = state.items.filter(item => {
+  //     return item.title.toLowerCase().includes(state.search.toLowerCase());
+  //   })
+  //   if (state.sort === 'popular') {
+  //     return items.sort((a, b) => a.share - b.share).reverse()
+  //   } else if (state.sort === 'unpopular') {
+  //     return items.sort((a, b) => a.share - b.share);
+  //     // } else if (condition) {
+  //     //   return items.sort((a, b) => a.share - b.share);
+  //     // } else if (condition) {
+  //     //   return items.sort((a, b) => a.share - b.share);
+  //   } else {
+  //     return items;
+  //   }
+  // },
   // END Get items 💬
   getItemCurrent: state => {
     return state.itemCurrent;

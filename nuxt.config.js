@@ -48,13 +48,19 @@ module.exports = {
     // },
   },
   modules: [
-    "@nuxtjs/axios",
+    // "@nuxtjs/axios",
+    "@nuxtjs/apollo",
     // "@nuxtjs/pwa"
   ],
+  apollo: {
+    clientConfigs: {
+      default: '@/apollo/client-configs/default.js'
+    }
+  },
   manifest: {
-    name: "mijnticenik | Mitchel van Eijgen <mvaneijgen@gmail.com>",
-    short_name: "mijnticenik",
-    lang: "en",
+    name: "Mijn Tic en Ik",
+    short_name: "Mijn Tic",
+    lang: "nl",
     icons: [
       {
         src: "android-chrome-96x96.png",
@@ -87,9 +93,9 @@ module.exports = {
   //     },
   //   ],
   // },
-  axios: {
-    // proxyHeaders: false
-  },
+  // axios: {
+  //   // proxyHeaders: false
+  // },
   ...routerBase,
   css: ["@/assets/css/main.scss"],
   /*

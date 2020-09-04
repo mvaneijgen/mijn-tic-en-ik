@@ -20,7 +20,7 @@ const fragmentMatcher = new IntrospectionFragmentMatcher({
 
 export default ({ req, app }) => {
   return {
-    httpEndpoint: 'https://api.studioalloy.nl/graphql',
+    httpEndpoint: 'https://huge-orca-10.hasura.app/v1/graphql',
     errorHandler: '@/plugins/apollo-error-handler.js',
     cache: new InMemoryCache({ fragmentMatcher }),
   }

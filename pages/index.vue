@@ -23,6 +23,8 @@ import { mapGetters } from "vuex";
 
 import { gsap } from "gsap";
 
+import tics from "~/apollo/queries/tics";
+
 import TicSingle from "~/components/interface/TicSingle.vue";
 
 export default {
@@ -33,6 +35,16 @@ export default {
     return {
       tweenedNumber: 0,
     };
+  },
+  apollo: {
+    tics: {
+      prefetch: true,
+      query: tics,
+      update(data) {
+        this.$store.commit("items/setItems", data.tics);
+        return data.tics;
+      },
+    },
   },
   computed: {
     ...mapGetters({
@@ -67,6 +79,13 @@ export default {
       }
     },
   },
+  // computed: {}, // Data with computed logic
+  // methods: {}, // Are functions run on user actions example @click or on lifecycle hooks
+  // watch: {}, // Watchs data, needs to have the same name as the data that is being watched
+  // directives: {}, // Create custom v-directives accepts element and bindings
+
+  // // Lifecycle hook. Check for more https://vuejs.org/v2/guide/instance.html or https://vuejs.org/v2/api/#Options-Lifecycle-Hooks
+
   mounted() {
     if (process.client) {
       window.addEventListener("keydown", this.arrowNavigation);
@@ -81,7 +100,9 @@ export default {
   watch: {
     // Animate the number 💯 using GSAP
     getItemCurrent: function (newValue) {
-      gsap.to(this.$data, 0.5, { tweenedNumber: newValue.share });
+      gsap.to(this.$data, 0.5, {
+        tweenedNumber: newValue.likes_aggregate.aggregate.count,
+      });
     },
   },
 };

@@ -7,7 +7,7 @@
 
     <template v-if="showMeta">
       <div class="meta">
-        <span>{{item.share}} mensen delen deze tic</span>
+        <span>{{item.likes_aggregate.aggregate.count}} mensen delen deze tic</span>
         <button ref="loseFocus">Dit doe ik ook!</button>
       </div>
     </template>
