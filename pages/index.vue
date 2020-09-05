@@ -62,7 +62,8 @@ export default {
       gsap
         .timeline()
         .to(this.$refs.loseFocus, {
-          duration: 0.2,
+          duration: 0.3,
+
           boxShadow: "0 0 0 20px rgba(30, 30, 30, 0.3)",
         })
         .set(this.$refs.loseFocus, {
@@ -104,7 +105,7 @@ export default {
 <style lang="scss" scoped>
 @import "~/assets/css/common/_variables.scss";
 
-.btn-fancy {
-  box-shadow: 0 0 0 0 rgba($brand-dark, 0.3);
-}
+// .btn-fancy {
+//   box-shadow: 0 0 0 0 rgba($brand-dark, 0.3);
+// }
 </style>
